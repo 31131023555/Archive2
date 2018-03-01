@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us"><head profile="http://www.w3.org/2005/10/profile">
+<link rel="stylesheet" href="video_files/bootstrap.css">    
+<link rel="stylesheet" href="video_files/mixer.css">
+
+<style type="text/css">
+  #elementsLayer{ display: none; }
+  #elementsLayer.active { display: block !important; }
+</style>
+</head>
+<body cz-shortcut-listen="true">
+  <div class="container">
+    <div class="row" style="background-color:black;">
+     <span class="wrap-750" style="max-width: 1106.99px;">   
+      <div id="playerCtrl" class="ng-scope">        
+        <div id="retubePlayer" class="embed-responsive embed-responsive-16by9" style="font-size: 11.07px;">        
+
+          <iframe id="3f89cff3-fc35-72e7-0943-d44664a8b708" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" src="https://www.youtube.com/embed/bjRw0-5CYWo?autoplay=1&amp;enablejsapi=1&amp;iv_load_policy=3&amp;disablekb=1&amp;showinfo=0&amp;rel=0&amp;start=5&amp;modestbranding=1&amp;widget_referrer=http%3A%2F%2Fcms.switch.pgcafe.asia%2Fsites%2F378e61af%2Fedit&amp;origin=http%3A%2F%2Fcms.switch.pgcafe.asia&amp;widgetid=1&amp;playsinline=1" width="640" height="360" frameborder="0"></iframe>      
+
+          <div id="elementsLayer" class="profileItem1 active"><a target="_blank" href="https://www.amazon.com/dp/B010GS9FLK/ref=twister_B078KDR5XB"><span id="rt-3719" class="imageElement ng-scope" style="display: block; left: 3%; top: 15%; width: 22.8947%; height: 15.4567%; background-image: url(&quot;video_files/items_retube_953a_shop3.png&quot;); opacity: 1; z-index: 10;"></span></a></div>
+
+          <div id="elementsLayer" class="profileItem2"><span id="rt-3715" class="imageElement ng-scope" style="display: block; left: 2.32237%; top: 18.6827%; width: 96.0526%; height: 58.548%; background-image: url(&quot;video_files/items_retube_a0b6_shows.png&quot;); opacity: 1; z-index: 5;"></span></div>
+
+          <div id="elementsLayer" class="profileItem3"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 13.0921%; top: 22.6464%; width: 73.4211%; height: 50.1171%; background-image: url(&quot;video_files/items_retube_4d7c_compose.png&quot;); opacity: 1; z-index: 1;"></span></div>
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <div class="row">    
+    <span class="wrap-750" style="max-width: 936px;">
+      <div class="ng-scope">  
+        <span id="profiles-panel">   
+          <span id="profilesThumbnails">
+            <span id="profileItem1" class="mixericonItem ng-scope profileItemPlayed" style="background-image: url(&quot;video_files/shows.svg&quot;);"></span>
+            <span id="profileItem2" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/location.svg&quot;);"></span>
+            <span id="profileItem3" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/compose.svg&quot;);"></span>
+          </span>
+        </span>
+      </div>
+    </span>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#profilesThumbnails span').on('click', function(){
+    $('#profilesThumbnails span').removeClass('profileItemPlayed')
+    $('#retubePlayer div').removeClass('active')
+    $(this).addClass('profileItemPlayed')
+    $('.' + $(this).attr('id')).addClass('active')
+  })
+});
+</script>
+</body></html>
