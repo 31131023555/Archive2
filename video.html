@@ -13,9 +13,11 @@
     <div class="row" style="background-color:black;">
      <span class="wrap-750" style="max-width: 1106.99px;">   
       <div id="playerCtrl" class="ng-scope">        
-        <div id="retubePlayer" class="embed-responsive embed-responsive-16by9" style="font-size: 11.07px;">        
+        <div id="retubePlayer" class="embed-responsive embed-responsive-16by9" style="font-size: 11.07px;">       
 
-          <iframe id="3f8" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" src="https://www.youtube.com/embed/bjRw0-5CYWo?autoplay=1&amp;enablejsapi=1&amp;iv_load_policy=3&amp;disablekb=1&amp;showinfo=0&amp;rel=0&amp;start=5&amp;modestbranding=1&amp;widget_referrer=http%3A%2F%2Fcms.switch.pgcafe.asia%2Fsites%2F378e61af%2Fedit&amp;origin=http%3A%2F%2Fcms.switch.pgcafe.asia&amp;widgetid=1&amp;playsinline=1" width="640" height="360" frameborder="0"></iframe>      
+          <video width="640" height="360" controls autoplay>
+            <source id="3f8" src="video_files/Retube/v1.mp4" type="video/mp4">
+          </video>     
 
           <div id="elementsLayer" class="profileItem1 active"><a target="_blank" href="https://www.amazon.com/dp/B010GS9FLK/ref=twister_B078KDR5XB"><span id="rt-3719" class="imageElement ng-scope" style="display: block; left: 3%; bottom: 15%; width: 35%; height: 23%; background-image: url(&quot;video_files/clothes1.png&quot;); opacity: 1; z-index: 10;"></span></a></div>
 
@@ -58,12 +60,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-  var videos = ["bjRw0-5CYWo?autoplay=1&amp;showinfo=0&amp;rel=0", "51ymfgR51oc?autoplay=1&amp;showinfo=0&amp;rel=0", "ckrevR1tnQQ?autoplay=1&amp;showinfo=0&amp;rel=0", "2aK8hy50fS4?autoplay=1&amp;showinfo=0&amp;rel=0", "tCV4dSMeQzE?autoplay=1&amp;showinfo=0&amp;rel=0", "NfiISKrzQw4?autoplay=1&amp;showinfo=0&amp;rel=0", "-TjtoP6-mcQ?autoplay=1&amp;showinfo=0&amp;rel=0", "1t3NR_AL79s?autoplay=1&amp;showinfo=0&amp;rel=0"];
+  var videos = ["v1.mp4", "v2.mp4", "v3.mp4", "v4.mp4", 
+                "v5.mp4", "v6.mp4", "v7.mp4", "v8.mp4"];
 
   $('#profilesThumbnails span').on('click', function(){
     video_index = parseInt($(this).attr('id').slice(-1)) - 1
     $('#3f8').remove();
-    $('<iframe id="3f8" width="420" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>').attr("src", "http://www.youtube.com/embed/" + videos[video_index]).appendTo("#retubePlayer");
+    $('<source id="3f8" type="video/mp4">').attr("src", "video_files/Retube/" + videos[video_index]).appendTo('video')
+    $('video')[0].load();
 
     $('#profilesThumbnails span').removeClass('profileItemPlayed')
     $('#retubePlayer div').removeClass('active')
