@@ -15,7 +15,7 @@
       <div id="playerCtrl" class="ng-scope">        
         <div id="retubePlayer" class="embed-responsive embed-responsive-16by9" style="font-size: 11.07px;">        
 
-          <iframe id="3f89cff3-fc35-72e7-0943-d44664a8b708" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" src="https://www.youtube.com/embed/bjRw0-5CYWo?autoplay=1&amp;enablejsapi=1&amp;iv_load_policy=3&amp;disablekb=1&amp;showinfo=0&amp;rel=0&amp;start=5&amp;modestbranding=1&amp;widget_referrer=http%3A%2F%2Fcms.switch.pgcafe.asia%2Fsites%2F378e61af%2Fedit&amp;origin=http%3A%2F%2Fcms.switch.pgcafe.asia&amp;widgetid=1&amp;playsinline=1" width="640" height="360" frameborder="0"></iframe>      
+          <div id="player"></div>
 
           <div id="elementsLayer" class="profileItem1 active"><a target="_blank" href="https://www.amazon.com/dp/B010GS9FLK/ref=twister_B078KDR5XB"><span id="rt-3719" class="imageElement ng-scope" style="display: block; left: 3%; top: 15%; width: 22.8947%; height: 15.4567%; background-image: url(&quot;video_files/items_retube_953a_shop3.png&quot;); opacity: 1; z-index: 10;"></span></a></div>
 
@@ -43,6 +43,69 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: 'M7lc1UVf-VE',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': stateChange
+      }
+    });
+  }
+
+  var done = false;
+       
+  var timestamp = [0, 60, 120, 180];
+  var timer;
+   
+  function timestamp_reached(i) {
+     console.log('timestamp reached');
+     //do something…
+     $('#retubePlayer div').removeClass('active')
+     $('.profileItem'+i).addClass('active')
+  }
+   
+  function timestamp_callback() {
+      clearTimeout(timer);
+           
+      current_time = player.getCurrentTime();
+      for (i = 0; i < timestamp.length; i++) {
+        remaining_time = timestamp[i] - current_time;
+        // if (remaining_time > 0) {
+        //     timer = setTimeout(timestamp_reached.bind(null, i+1), remaining_time * 1000);
+        // }
+        if (current_time > timestamp[i]) {
+          timer = setTimeout(timestamp_reached.bind(null, i+1), remaining_time * 1000);
+        }
+
+      }
+         
+  }
+   
+  function stateChange(evt) {
+      if (evt.data == YT.PlayerState.PLAYING) {
+          timestamp_callback();
+      }
+  };
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+
 $(document).ready(function(){
   $('#profilesThumbnails span').on('click', function(){
     $('#profilesThumbnails span').removeClass('profileItemPlayed')
