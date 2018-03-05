@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us"><head profile="http://www.w3.org/2005/10/profile">
+<link rel="stylesheet" href="video_files/bootstrap.css">
+<link rel="stylesheet" href="video_files/mixer.css">
+
+<style type="text/css">
+  #elementsLayer{ display: none; }
+  #elementsLayer.active { display: block !important; }
+  div#video_player_box{ width:550px; background:#000; margin:0px auto;}
+  div#video_controls_bar{ background: #333; padding:10px; color:#CCC;}
+  input#seekslider{ width:180px; }
+  input#volumeslider{ width: 80px;}
+</style>
+</head>
+<body cz-shortcut-listen="true">
+  <div class="container">
+    <div class="row" style="background-color:black;">
+     <span class="wrap-750" style="max-width: 1106.99px;">
+      <div id="playerCtrl" class="ng-scope">
+        <div id="retubePlayer" class="embed-responsive embed-responsive-16by9" style="font-size: 11.07px;">
+
+            <video id="player-video" width="640" height="360" controls autoplay muted>
+              <source src="video_files/Retube/v1.mp4" type="video/mp4">
+            </video>
+
+          <div id="elementsLayer" class="profileItem1 active"><a target="_blank" href="https://www.amazon.com/dp/B010GS9FLK/ref=twister_B078KDR5XB"><span id="rt-3719" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes1.png&quot;); opacity: 1; z-index: 10;"></span></a></div>
+
+          <div id="elementsLayer" class="profileItem2 "><span  class="imageElement ng-scope" style="display: block; right: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes2.png&quot;); opacity: 1; z-index: 10;"></span></div>
+
+          <div id="elementsLayer" class="profileItem3"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes3.png&quot;); opacity: 1; z-index: 10;"></span></div>
+
+          <div id="elementsLayer" class="profileItem4"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes4.png&quot;); opacity: 1; z-index: 10;"></span></div>
+
+          <div id="elementsLayer" class="profileItem5"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes5.png&quot;); opacity: 1; z-index: 10;"></span></div>
+
+          <div id="elementsLayer" class="profileItem6"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes6.png&quot;); opacity: 1; z-index: 10;"></span></div>
+
+          <div id="elementsLayer" class="profileItem7"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes7.png&quot;); opacity: 1; z-index: 10;"></span></div>
+
+          <div id="elementsLayer" class="profileItem8"><span id="rt-3440" class="imageElement ng-scope" style="display: block; left: 3.6%; bottom: 6.5%; width: 26.65%; height: 37%; background-image: url(&quot;video_files/clothes8.png&quot;); opacity: 1; z-index: 10;"></span></div>
+        </div>
+      </div>
+    </span>
+  </div>
+
+  <div class="row">
+    <span class="wrap-750" style="max-width: 936px;">
+      <div class="ng-scope">
+        <span id="profiles-panel">
+          <span id="profilesThumbnails">
+            <span id="profileItem1" class="mixericonItem ng-scope profileItemPlayed" style="background-image: url(&quot;video_files/girl1.png&quot;);"></span>
+            <span id="profileItem2" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl2.png&quot;);"></span>
+            <span id="profileItem3" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl3.png&quot;);"></span>
+            <span id="profileItem4" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl4.png&quot;);"></span>
+            <span id="profileItem5" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl5.png&quot;);"></span>
+            <span id="profileItem6" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl6.png&quot;);"></span>
+            <span id="profileItem7" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl7.png&quot;);"></span>
+            <span id="profileItem8" class="mixericonItem ng-scope" style="background-image: url(&quot;video_files/girl8.png&quot;);"></span>
+          </span>
+        </span>
+      </div>
+    </span>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  var timestamp = [0, 10, 20, 30, 40, 50, 60];
+  var player = document.getElementById('player-video');
+
+  // set time show products
+
+
+  // function timestamp_callback() {
+  //   console.log('timestamp callback');
+  //     // clearTimeout(timer);
+  //     var timer, i, length;
+  //     var current_time = player.currentTime;
+
+  //     for (i = 0, length = timestamp.length; i < length; i++) {
+
+  //       if (timestamp[i] < current_time < timestamp[i + 1]) {
+  //         var remaining_time = timestamp[i + 1] - current_time;
+  //         timer = setTimeout(timestamp_reached.bind(null, i + 1), remaining_time * 1000);
+  //       }
+
+  //       // if (timestamp[i] < current_time < timestamp[i + 1] ) {
+  //       //   timer = setTimeout(timestamp_reached.bind(null, i + 1), remaining_time * 1000);
+  //       // }
+  //     }
+  // }
+
+  // player.addEventListener('play', function(evt) {
+  //     if (evt.data == player.PLAYING) {
+  //       console.log('timestamp onStateChange');
+  //       // clearTimeout(timer);
+  //       var timer, i, length;
+  //       var current_time = player.currentTime;
+  //       for (i = 0, length = timestamp.length; i < length; i++) {
+  //         var remaining_time = timestamp[i+1] - current_time;
+
+  //         if (timestamp[i + 1] > current_time) {
+
+  //           timer = setTimeout(timestamp_reached.bind(null, i + 2), remaining_time * 1000);
+  //         }
+
+  //         // if (0 < remaining_time) {
+  //         //   timer = setTimeout(timestamp_reached.bind(null, i + 1), remaining_time * 1000);
+  //         //   return false;
+  //         // }
+  //       }
+
+  //     }
+  // });
+  var timer;
+  player.addEventListener('seeking', function() {
+    console.log('seeked');
+    clearTimeout(timer);
+    var current_time = player.currentTime;
+    for (i=0; i<timestamp.length; i++) {
+      if (current_time>timestamp[i] && current_time<timestamp[i+1]) {
+        remaining_time = timestamp[i+1] - current_time;
+        setTimeout(timestamp_reached.bind(null, i + 1), 100);
+        timer = setTimeout(timestamp_reached.bind(null, i + 2), remaining_time * 1000);
+      }
+    }
+  })
+
+  function timestamp_reached(a) {
+      console.log('timestamp reached');
+      $('#profilesThumbnails span').removeClass('profileItemPlayed');
+      $('#retubePlayer div').removeClass('active');
+      $('#profileItem' + a).addClass('profileItemPlayed');
+      $('.profileItem' + a).addClass('active');
+  }
+
+  // create button on time
+  $(document).ready(function(){
+    $('#profilesThumbnails span').on('click', function(){
+      var set_time = parseInt($(this).attr('id').slice(-1)) -1;
+      player.currentTime = timestamp[set_time] - 0.1;
+    });
+  });
+</script>
+</body></html>

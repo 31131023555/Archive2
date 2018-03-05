@@ -82,13 +82,13 @@
            
       current_time = player.getCurrentTime();
       for (i = 0; i < timestamp.length; i++) {
-        remaining_time = timestamp[i] - current_time;
-        // if (remaining_time > 0) {
-        //     timer = setTimeout(timestamp_reached.bind(null, i+1), remaining_time * 1000);
-        // }
-        if (current_time > timestamp[i]) {
-          timer = setTimeout(timestamp_reached.bind(null, i+1), remaining_time * 1000);
+        remaining_time = timestamp[i+1] - current_time;
+        if (remaining_time>0) {
+          timer = setTimeout(timestamp_reached.bind(null, i+2), remaining_time * 1000);
         }
+        // if (current_time > timestamp[i]) {
+        //   timer = setTimeout(timestamp_reached.bind(null, i+1), remaining_time * 1000);
+        // }
 
       }
          
@@ -109,9 +109,7 @@
 $(document).ready(function(){
   $('#profilesThumbnails span').on('click', function(){
     $('#profilesThumbnails span').removeClass('profileItemPlayed')
-    $('#retubePlayer div').removeClass('active')
     $(this).addClass('profileItemPlayed')
-    $('.' + $(this).attr('id')).addClass('active')
   })
 });
 </script>
